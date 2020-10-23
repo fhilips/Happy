@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text, Dimensions } from 'react-native';
 import MapView, { Marker, Callout, PROVIDER_GOOGLE } from 'react-native-maps'
 import { Feather } from '@expo/vector-icons';
-import { useFonts } from 'expo-font';
-import { Nunito_600SemiBold, Nunito_700Bold, Nunito_800ExtraBold } from '@expo-google-fonts/nunito';
 
 import mapMarker from '../images/map-marker.png';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
@@ -22,11 +20,11 @@ const OrphanagesMap = () => {
     const navigation = useNavigation();
     
     console.log(orphanages)
-    useEffect(() => {
+    useFocusEffect(() => {
         api.get('orphanages').then(response => {
             setOrphanages(response.data);
         });
-    }, []);
+    });
 
     function handleNavigateToOrphanageDetails(id: number) {
         navigation.navigate('OrphanageDetails', { id });

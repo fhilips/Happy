@@ -3,8 +3,8 @@ import Image from '../models/Image';
 export default {
     render(image: Image) {
         return {
-            name: image.id,
-            url: `http://192.168.0.18:3333/uploads/${image.path}`,
+            id: image.id,
+            url: `http://192.168.0.14:3333/uploads/${image.path}`,
         };
     },
 
