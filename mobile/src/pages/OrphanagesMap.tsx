@@ -20,11 +20,12 @@ const OrphanagesMap = () => {
     const navigation = useNavigation();
     
     console.log(orphanages)
-    useFocusEffect(() => {
+    useFocusEffect( 
+        React.useCallback(() => {
         api.get('orphanages').then(response => {
             setOrphanages(response.data);
         });
-    });
+    }, [Response]));
 
     function handleNavigateToOrphanageDetails(id: number) {
         navigation.navigate('OrphanageDetails', { id });
